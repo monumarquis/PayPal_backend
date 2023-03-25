@@ -11,6 +11,13 @@ app.get("/", userPrivateRoute, async (req, res) => {
     return res.status(201).send(sprint)
 })
 
+// Single sprint Route
+app.get("/:id", userPrivateRoute, async (req, res) => {
+    const { id } = req.params
+    const sprint = await sprintModel.find({ _id: id });
+    return res.status(201).send(sprint)
+})
+
 // Delete Sprint Route
 app.delete('/:id', adminPrivateRoute, async (req, res) => {
     let { id } = req.params
