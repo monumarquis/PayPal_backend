@@ -40,7 +40,7 @@ app.patch('/update-status', userPrivateRoute, async (req, res) => {
     console.log(user, taskId);
 
     try {
-        let doc = await taskModel.findOneAndUpdate({ _id: taskId }, { $set: { status: "completed" } }, {
+        let doc = await taskModel.findOneAndUpdate({ _id: taskId }, { $set: { status: "Completed" } }, {
             new: true
         });
         console.log(doc);
